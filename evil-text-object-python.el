@@ -1,4 +1,4 @@
-;;; evil-text-object-python --- python specific evil text objects -*- lexical-binding: t; -*-
+;;; evil-text-object-python.el --- Python specific evil text objects -*- lexical-binding: t; -*-
 
 ;; Author: Wouter Bolsterlee <wouter@bolsterl.ee>
 ;; Version: 1.0.0
