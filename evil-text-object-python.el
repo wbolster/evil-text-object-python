@@ -68,13 +68,11 @@
                (point))))
     (evil-range beg end)))
 
-;;;###autoload
 (evil-define-text-object
   evil-text-object-python-inner-statement (count &optional beg end type)
   "Inner text object for the Python statement under point."
   (evil-text-object-python--make-text-object count type))
 
-;;;###autoload
 (evil-define-text-object
   evil-text-object-python-outer-statement (count &optional beg end type)
   "Outer text object for the Python statement under point."
