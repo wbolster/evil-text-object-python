@@ -68,13 +68,13 @@
                (point))))
     (evil-range beg end)))
 
-;;;###autoload
+;;;###autoload (autoload 'evil-text-object-python-inner-statement "evil-text-object-python" nil t)
 (evil-define-text-object
   evil-text-object-python-inner-statement (count &optional beg end type)
   "Inner text object for the Python statement under point."
   (evil-text-object-python--make-text-object count type))
 
-;;;###autoload
+;;;###autoload (autoload 'evil-text-object-python-outer-statement "evil-text-object-python" nil t)
 (evil-define-text-object
   evil-text-object-python-outer-statement (count &optional beg end type)
   "Outer text object for the Python statement under point."
