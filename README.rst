@@ -26,7 +26,9 @@ taken, since Evil and Vim use those to operate on sentences.)
 Example
 =======
 
-Consider this sample code::
+Consider this sample code:
+
+.. code:: python
 
   class Foo:
       def bar(self):
