@@ -89,7 +89,9 @@ Install from Melpa::
 
   M-x package-install RET evil-text-object-python RET
 
-Then add this to ``init.el``::
+Then add this to ``init.el``:
+
+.. code:: elisp
 
   (add-hook 'python-mode-hook 'evil-text-object-python-add-bindings)
 
@@ -104,7 +106,7 @@ The default key binding uses the letter ``l`` (``il`` and ``al``), but
 can be customised by changing ``evil-text-object-python-statement-key``.
 For example:
 
-::
+.. code:: elisp
 
   (setq evil-text-object-python-statement-key "x")
 
