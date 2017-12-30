@@ -22,6 +22,12 @@ The default key bindings are ``il`` and ``al``, which can be memorised
 as ‘inner line‘ and ‘a line‘. (Note that ``is`` and ``as`` are already
 taken, since Evil and Vim use those to operate on sentences.)
 
+It also provides a text object to operate on complete functions (or
+multiple functions).
+
+* ``evil-text-object-python-function`` is the 'function' text object
+  that selects the lines of the current function.
+
 
 Example
 =======
