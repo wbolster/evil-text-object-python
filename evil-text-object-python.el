@@ -20,6 +20,7 @@
 ;;; Code:
 
 (require 'evil)
+(require 'python)
 
 (defgroup evil-text-object-python nil
   "Evil text objects for Python"
