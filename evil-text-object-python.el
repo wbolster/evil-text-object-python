@@ -33,7 +33,7 @@
   :group 'evil-text-object-python)
 
 (defcustom evil-text-object-python-function-key "f"
-  "Key to use for a Python statement in the text object maps."
+  "Key to use for a Python function in the text object maps."
   :type 'string
   :group 'evil-text-object-python)
 
