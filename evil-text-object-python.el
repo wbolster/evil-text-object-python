@@ -119,18 +119,20 @@ This function should be added to a major mode hook.  It modifies
 buffer-local keymaps and adds bindings for Python text objects for
 both operator state and visual state."
   (interactive)
-  (evil-text-object-python--define-key
-   evil-text-object-python-statement-key
-   evil-inner-text-objects-map
-   'evil-text-object-python-inner-statement)
-  (evil-text-object-python--define-key
-   evil-text-object-python-function-key
-   evil-inner-text-objects-map
-   'evil-text-object-python-function)
-  (evil-text-object-python--define-key
-   evil-text-object-python-statement-key
-   evil-outer-text-objects-map
-   'evil-text-object-python-outer-statement))
+  (when evil-text-object-python-statement-key
+    (evil-text-object-python--define-key
+     evil-text-object-python-statement-key
+     evil-inner-text-objects-map
+     'evil-text-object-python-inner-statement)
+    (evil-text-object-python--define-key
+     evil-text-object-python-statement-key
+     evil-outer-text-objects-map
+     'evil-text-object-python-outer-statement))
+  (when evil-text-object-python-function-key
+    (evil-text-object-python--define-key
+     evil-text-object-python-function-key
+     evil-inner-text-objects-map
+     'evil-text-object-python-function)))
 
 (provide 'evil-text-object-python)
 ;;; evil-text-object-python.el ends here
