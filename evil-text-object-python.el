@@ -20,6 +20,7 @@
 ;;; Code:
 
 (require 'evil)
+(require 'python)
 
 (defgroup evil-text-object-python nil
   "Evil text objects for Python"
@@ -27,6 +28,11 @@
   :group 'evil)
 
 (defcustom evil-text-object-python-statement-key "l"
+  "Key to use for a Python statement in the text object maps."
+  :type 'string
+  :group 'evil-text-object-python)
+
+(defcustom evil-text-object-python-function-key "f"
   "Key to use for a Python statement in the text object maps."
   :type 'string
   :group 'evil-text-object-python)
@@ -68,6 +74,24 @@
                (point))))
     (evil-range beg end)))
 
+(defun evil-text-object-python--make-func-text-object (count type)
+  "Helper to make text object for COUNT Python statements of TYPE."
+  (let ((beg (save-excursion
+               (python-nav-backward-defun)
+               (when (or (eq this-command 'evil-delete) (eq type 'line))
+                 (beginning-of-line))
+               (point)))
+        (end (save-excursion
+               (dotimes (number (1- count))
+                 (python-nav-forward-defun))
+               (python-nav-end-of-defun)
+               (when (eq type 'line)
+                 (condition-case nil
+                     (progn (next-line) (beginning-of-line))
+                   (end-of-buffer nil)))
+               (point))))
+    (evil-range beg end)))
+
 ;;;###autoload (autoload 'evil-text-object-python-inner-statement "evil-text-object-python" nil t)
 (evil-define-text-object
   evil-text-object-python-inner-statement (count &optional beg end type)
@@ -81,6 +105,12 @@
   :type line
   (evil-text-object-python--make-text-object count type))
 
+;;;###autoload (autoload 'evil-text-object-python-function "evil-text-object-python" nil t)
+(evil-define-text-object
+  evil-text-object-python-function (count &optional beg end type)
+  "Inner text object for the Python statement under point."
+  (evil-text-object-python--make-func-text-object count type))
+
 ;;;###autoload
 (defun evil-text-object-python-add-bindings ()
   "Add text object key bindings.
@@ -88,10 +118,15 @@
 This function should be added to a major mode hook.  It modifies
 buffer-local keymaps and adds bindings for Python text objects for
 both operator state and visual state."
+  (interactive)
   (evil-text-object-python--define-key
    evil-text-object-python-statement-key
    evil-inner-text-objects-map
    'evil-text-object-python-inner-statement)
+  (evil-text-object-python--define-key
+   evil-text-object-python-function-key
+   evil-inner-text-objects-map
+   'evil-text-object-python-function)
   (evil-text-object-python--define-key
    evil-text-object-python-statement-key
    evil-outer-text-objects-map
