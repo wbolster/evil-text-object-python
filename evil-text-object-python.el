@@ -65,7 +65,7 @@
                  (beginning-of-line))
                (point)))
         (end (save-excursion
-               (dotimes (number (1- count))
+               (--dotimes (1- count)
                  (python-nav-forward-statement))
                (python-nav-end-of-statement)
                (when (eq type 'line)
@@ -83,7 +83,7 @@
                  (beginning-of-line))
                (point)))
         (end (save-excursion
-               (dotimes (number (1- count))
+               (--dotimes (1- count)
                  (python-nav-forward-defun))
                (python-nav-end-of-defun)
                (when (eq type 'line)
