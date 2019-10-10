@@ -69,9 +69,7 @@
                  (python-nav-forward-statement))
                (python-nav-end-of-statement)
                (when (eq type 'line)
-                 (condition-case nil
-                     (progn (next-line) (beginning-of-line))
-                   (end-of-buffer nil)))
+                 (forward-line))
                (point))))
     (evil-range beg end)))
 
@@ -87,9 +85,7 @@
                  (python-nav-forward-defun))
                (python-nav-end-of-defun)
                (when (eq type 'line)
-                 (condition-case nil
-                     (progn (next-line) (beginning-of-line))
-                   (end-of-buffer nil)))
+                 (forward-line))
                (point))))
     (evil-range beg end)))
 
