@@ -3,7 +3,7 @@
 ;; Author: Wouter Bolsterlee <wouter@bolsterl.ee>
 ;; Version: 1.0.1
 ;; Package-Requires: ((emacs "24") (evil "1.2.12"))
-;; Keywords: evil python text-object
+;; Keywords: convenience languages tools
 ;; URL: https://github.com/wbolster/evil-text-object-python
 ;;
 ;; This file is not part of GNU Emacs.
