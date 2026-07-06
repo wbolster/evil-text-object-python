@@ -1,7 +1,7 @@
 ;;; evil-text-object-python.el --- Python specific evil text objects -*- lexical-binding: t; -*-
 
 ;; Author: Wouter Bolsterlee <wouter@bolsterl.ee>
-;; Version: 1.0.1
+;; Version: 1.1.0
 ;; Package-Requires: ((emacs "25") (evil "1.2.14") (dash "2.16.0"))
 ;; Keywords: convenience languages tools
 ;; URL: https://github.com/wbolster/evil-text-object-python
